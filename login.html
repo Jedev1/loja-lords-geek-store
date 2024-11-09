@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./src/css/login.css">
+</head>
+<body>
+    <div class="login">
+        <div class="login__content">
+            <div class="login__img">
+                <img src="./src/img/logo.jpg" alt="logo">
+            </div>
+            <div class="login__forms">
+                <form action="" class="login-registre" id="login-in">
+                    <h1 class="login__title">Entrar</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="email" placeholder="email" name="" id="email_login" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bxs-lock-alt login__icon'></i>
+                        <input type="password" placeholder="Senha" name="" id="senha_login" class="login__input">
+                    </div>
+
+                    <a href="#" class="login__forgot">Esqueceu a senha?</a>
+
+                    <input type="submit" class="login__button" id="signIn" value="Entrar"> 
+
+                    <div>
+                        <span class="login__account">Não possui conta?</span>
+                        <span class="login__signin" id="sign-up">Cadastre-se</span>
+                    </div>
+                </form>
+
+                <form action="" class="login-create none" id="login-up">
+                    <h1 class="login__title">Cadastra-se</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        <input type="text" placeholder="Usuário" name="" id="usuario_cadastro" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bx-envelope login__icon'></i>
+                        <input type="email" placeholder="Email" name="" id="email_cadastro" class="login__input">
+                    </div>
+
+                    <div class="login__box">
+                        <i class='bx bxs-lock-alt login__icon'></i>
+                        <input type="password" placeholder="Senha" name="" id="senha_cadastro" class="login__input">
+                    </div>
+
+                    <input type="submit" class="login__button" id="signIn" value="Cadastre-se">   
+
+                    <div>
+                        <span class="login__account">Já possui conta?</span>
+                        <span class="login__signup" id="sign-in">Entrar</span>
+                    </div>
+
+                    <div class="login__socials">
+                        <a href="#" class="login__social-icon"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="login__social-icon"><i class='bx bxl-google'></i></a>
+                        <a href="#" class="login__social-icon"><i class='bx bxl-instagram'></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./src/js/login.js"></script>
+</body>
+</html>

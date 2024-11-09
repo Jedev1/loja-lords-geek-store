@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lord's Geek Store</title>
+</head>
+<body>
+    <label>Nome do Produto</label>
+    <input type="text" id="FnameInp">
+    <br></br>
+
+    <label>Valor</label>
+    <input type="text" id="valInp">
+    <br></br>
+
+    <label>Categorias</label>
+    <select id="catInp">
+        <option value="camisetas">Camisetas</option>
+        <option value="acessorios">Acessórios</option>
+        <option value="brindes">Brindes</option>
+        <option value="chaveiros">Chaveiros</option>
+        <option value="caneca">Canecas</option>
+    </select>
+    <br></br>
+
+    <button id="addBtn">Adicionar</button>
+    <button id="recuBtn">Recuperar</button>
+    <button id="atBtn">Atualizar</button>
+    <button id="delBtn">Deletar</button>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyCj-kHktqJBGV2mWJKViKiFaKSBc2BK05o",
+    authDomain: "fir-bdlordgeekstore.firebaseapp.com",
+    databaseURL: "https://fir-bdlordgeekstore-default-rtdb.firebaseio.com",
+    projectId: "fir-bdlordgeekstore",
+    storageBucket: "fir-bdlordgeekstore.appspot.com",
+    messagingSenderId: "155966530529",
+    appId: "1:155966530529:web:6fdaa47323a43c1f8da8a0"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+    import {getDatabase, ref, child,get,set,update,remove} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"
+
+    const db = getDatabase()
+    let Fname = document.getElementById("FnameInp")
+    let valor =  document.getElementById("valInp")
+    let catInp =  document.getElementById("catInp")
+
+    let addBtn = document.getElementById("addBtn")
+    let recuBtn = document.getElementById("recuBtn")
+    let atBtn =  document.getElementById("atBtn")
+    let delBtn =  document.getElementById("delBtn")
+
+    function addData(){
+        set(ref(db, 'Produtos/' + Fname.value), {
+            nomedoproduto:Fname.value,
+            val: valor.value,
+            cartegorias: catInp.value
+        }).then(() => {
+            alert("Produto adicionado com sucesso")
+        }).cath((error) =>{
+            alert("Não adicionado")
+            console.log(error)
+        })
+    }
+
+    function retData(){
+        const dbref = ref(db)
+
+        get(child(dbref, 'Produtos/' + Fname.value)).then((snapshot)=>{
+            if(snapshot.exists()){
+                Fname.value = snapshot.val().nomedoproduto
+                valor.value = snapshot.val(). val
+                catInp.value = snapshot.val().cartegoria
+            }
+            else{
+                alert("Produto não existe")
+            }
+            
+        })
+        .catch((error) => {
+                alert("Sem sucesso")
+                console.log(error)
+        })
+    }
+
+    function updateData(){
+        update(ref(db, 'Produtos/' + Fname.value), {
+            nomedoproduto:Fname.value,
+            val: valor.value,
+            cartegorias: catInp.value
+        }).then(() => {
+            alert("Produto atualizado com sucesso")
+        }).cath((error) =>{
+            alert("Não atualizado")
+            console.log(error)
+        })
+    }
+
+    function deleteData(){
+        remove(ref(db, 'Produtos/' + Fname.value)
+    ).then(() => {
+            alert("Produto removido com sucesso")
+        }).cath((error) =>{
+            alert("Não removido")
+            console.log(error)
+        })
+    }
+
+    addBtn.addEventListener('click', addData)
+    recuBtn.addEventListener('click', retData)
+    atBtn.addEventListener('click',updateData)
+    delBtn.addEventListener('click', deleteData)
+    
+</script>
+
+   
+</body>
+</html>
