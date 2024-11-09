@@ -1,6 +1,5 @@
 <h1 align="center">Loja Lord's geek Store - João 👾</h1>
 
-![Imagem do projeto finalizado]("src/img/logo.jpg")
 
 <h4 align="center"><a href="https://jedev1.github.io/loja-lords-geek-store/">Confira o projeto aqui</a></h4>
 
